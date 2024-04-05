@@ -45,8 +45,8 @@ _G.Fruits = {
     ["Sound"] = true,
 }
 
--- Função para desenhar o ESP da fruta
-local function drawFruitESP(fruit)
+
+
     local part = Instance.new("Part")
     part.Size = Vector3.new(3, 3, 3) -- Tamanho do ESP da fruta
     part.Position = fruit.Position
@@ -65,7 +65,7 @@ local function drawFruitESP(fruit)
     textLabel.Position = Vector3.new(fruit.Position.X, fruit.Position.Y + 3, fruit.Position.Z)
     textLabel.Parent = part
     
-    -- Adiciona a distância entre o jogador e a fruta ao ESP
+
     local distanceLabel = Instance.new("TextLabel")
     distanceLabel.Text = tostring(math.floor((fruit.Position - player.Character.HumanoidRootPart.Position).magnitude)) .. "m"
     distanceLabel.Font = Enum.Font.SourceSansBold
@@ -78,7 +78,7 @@ end
 
 local CheckDist = function()
     local Target = nil
-    local ShortestDistance = 1000
+    local ShortestDistance = 60000
     for i, v in pairs(workspace:GetChildren()) do
         if v.Name == "Fruit" and _G.Fruits[v.Type.Value] and (v.Position - player.Character.HumanoidRootPart.Position).magnitude < ShortestDistance then
             Target = v
